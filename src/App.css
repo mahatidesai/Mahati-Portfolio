@@ -1,38 +1,1025 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  margin: 0;
+  padding: 0;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 100%;
+  background:
+    radial-gradient(circle at 98% 0%, rgba(203, 82, 146,0.20), transparent 12%),
+    radial-gradient(circle at 5% 25%, rgba(223,182,176,0.14), transparent 15%),
+    radial-gradient(circle at 98% 50%, rgba(135,49,209, 0.25), transparent 20%),
+    radial-gradient(circle at 90% 65%, rgba(203, 82, 146,0.20), transparent 15%),
+    radial-gradient(circle at 70% 73%, rgba(223,182,176,0.13), transparent 15%),
+    radial-gradient(circle at 0% 80%, rgba(135,49,209, 0.15), transparent 20%),
+    radial-gradient(circle at 20% 92%, rgba(203, 82, 146,0.15), transparent 15%),
+    radial-gradient(circle at 45% 105%, rgba(223,182,176,0.13), transparent 15%),
+    #0a0a0a;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+@font-face {
+  font-family: 'Chromatica';
+  src: url('../public/fonts/Chromatica-Regular.otf') 
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@font-face {
+  font-family: 'Constan';
+  src: url('../public/fonts/constan.ttf');
+}
+
+.WelcomeMessage{
+  display: flex;
+  flex-direction: column;
+  font-family: 'Constan';
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.Message{
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5vw;
+  font-family: 'Constan';
+  background: linear-gradient(
+    90deg,
+    rgb(223,182,176) 0%,
+    rgb(203, 82, 146) 30%,
+    rgb(223,182,176) 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  animation: slideColorOnce 7s ease-in infinite alternate-reverse,
+  portfolioNameAnimation 1s ease-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+    
+}
+
+@keyframes slideColorOnce {
+  0% {
+    background-position: -200% 0;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    background-position: 200% 0;
   }
 }
+
+
+@keyframes portfolioNameAnimation {
+  from{
+    transform: translateY(20%) scale(0.9);
+    opacity: 0;
+  }
+  to{
+    transform: translateY(1) scale(1);
+    opacity: 1;
+  }
+}
+
+.About{
+  width: 100%;
+  height: 100vh;
+}
+
+.aboutTop{
+ width: 100%; 
+ justify-items: center;
+ padding-top: 3vh;
+}
+
+.aboutContent{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 15vh;
+}
+
+@keyframes aboutTextSlideIn {
+  from{
+    transform: translateX(-10%);
+    opacity: 0;
+  }
+  to{
+    transform: translateX(0);
+    opacity: 1;
+  }  
+}
+
+@keyframes aboutTextSlideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-10%);
+    opacity: 0;
+  }
+}
+
+.aboutText{
+  width: 50%;
+  opacity: 0;
+}
+
+.aboutText.fadeIn{
+  animation: aboutTextSlideIn 1.2s ease-in forwards;
+  opacity: 1;
+}
+
+.aboutText.fadeOut{
+  animation: aboutTextSlideOut 1s ease-in forwards;
+  opacity: 1;
+}
+
+.greeting{
+  font-size: 2vw;
+  font-weight: bold;
+  font-family: 'Constan';
+  width: fit-content;
+  background: linear-gradient(90deg, rgb(203, 82, 146), rgb(223,182,176));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.myName{
+  font-size: 2vw;
+  /* font-weight: bold; */
+  font-family: 'Constan';
+}
+
+.designation{
+  font-family: 'Chromatica';
+  font-size: 1.6vw;
+  margin-top: -1vh;
+  width: fit-content;
+  background: linear-gradient(90deg, rgb(203, 82, 146), rgb(223,182,176));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 4vh;
+}
+
+.desiDesc{
+  font-family: 'Chromatica';
+  line-height: 130%;
+  width: 60%;
+  margin-top: 2.5vh;
+  font-size: 1vw;
+}
+
+.contact{
+  margin-top: 8vh;
+  margin-bottom: 4vh;
+  display: flex;
+  width: 40%;
+  justify-content: start;
+  gap: 5vw;
+  position: relative; 
+  z-index: 1;
+}
+
+.contact a{
+  text-decoration: none;
+  color: white;
+}
+
+
+.contact::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: -1vw;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(203, 82, 146), rgba(223,182,176));
+  filter: blur(20px);
+  opacity: 50%;
+  z-index: -1;
+  border-radius: 20px;
+}
+
+.icon{
+  height: 2vw;
+  width: 2vw;
+}
+
+.badges{
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 4vw;
+}
+
+.box{
+  border: 1px solid white;
+  width: 22%;
+  height: fit-content;
+  padding: 0.5vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 1vw;
+  border-radius: 0.3vw;
+  
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.05) 100%);
+  
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  transition: background-position 2s ease-in-out;
+}
+
+.box:hover {
+  background-position: 100% 50%;
+}  
+
+.boximage{
+  width: 1.6vw;
+  height: 1.6vw;
+}
+
+.total{
+  font-size: 1.2vw;
+  font-family: 'Constan';
+}
+
+.number{
+  font-size: 1.5vw;
+  font-family: 'Chromatica';
+}
+
+@keyframes aboutImageSlideIn {
+  from{
+    transform: translateX(10%);
+    opacity: 0;
+  }
+  to{
+    transform: translateX(0);
+    opacity: 1;
+  }  
+}
+
+@keyframes aboutImageSlideOut {
+  from{
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to{
+    transform: translateX(10%);
+    opacity: 0;
+  }  
+}
+
+
+.aboutImage.fadeIn{
+  animation: aboutImageSlideIn 1s ease-in forwards;
+}
+
+.aboutImage.fadeOut{
+  animation: aboutImageSlideOut 1s ease-in forwards;
+}
+
+.langButton{
+  font-family: '/fonts/Chromatica-Regular.otf';
+  width: 5vw;
+  height: fit-content;
+  background-color: aliceblue;
+  padding: 0.8vw;
+  border-radius: 0.2vw;
+  background: linear-gradient(90deg, rgb(215,80,225), rgb(163,101,252));
+  box-shadow: -4px 4px rgb(223,182,176,0.3);
+  text-align: center;
+  animation: floatingButton 2s ease-in-out infinite alternate;
+
+}
+
+@keyframes floatingButton {
+  from{
+    transform: translateY(10%);
+  }
+  to{
+    transform: translateY(-10%);
+  }
+}
+
+.langButton.Up{
+  margin-bottom: -5vh;
+  margin-left: 2vw;
+}
+
+.langButton.Mid{
+  margin-left: -1vw;
+}
+
+.langButton.Down{
+  margin-left: 3vw;
+  margin-top: -5vh;
+}
+
+.cmdButton{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Portfolio{
+  width: 100%;
+  height: 100vh;
+  justify-items: center;
+}
+
+@keyframes projectAnimationIn {
+  from{
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to{
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+}
+
+@keyframes projectAnimationOut {
+  from{
+    transform: scale(1);
+    opacity: 1;
+  }
+  to{
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  
+}
+
+.projects.fadeIn{
+  animation: projectAnimationIn 1s ease-in forwards;
+  opacity: 1;
+}
+
+.projects.fadeOut{
+  animation: projectAnimationOut 1s ease-in forwards;
+  opacity: 1;
+}
+
+.projects {
+  /* background-color: antiquewhite; */
+  margin-top: 8vh;
+  width: 95%;
+  height: 80vh;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 2vw;
+  align-items: center;
+  overflow-x: scroll; 
+  scroll-behavior: smooth; 
+  padding: 1vw;
+  scrollbar-width: none;          
+  -ms-overflow-style: none;
+}
+
+
+.projectItem{
+  width: 21.8vw;
+  height: 75vh;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 5px;
+  position: relative; 
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  text-decoration: none;
+  color: white;
+}
+
+.projectItem:hover{
+  border: 2px solid transparent;
+  border-color:rgba(223,182,176) rgb(215,80,225) rgb(215,80,225) rgba(203, 82, 146);
+}
+
+.projImage{
+  height: 30vh;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.projTitle{
+  font-weight: bold;
+  font-family: 'Constan';
+  padding: 1vw;
+  font-size: 1.25vw;
+  background: linear-gradient(90deg, rgb(203, 82, 146), rgb(223,182,176));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.projDesc{
+  font-family: 'Chromatica';
+  line-height: 140%;
+  font-size: 0.8vw;
+  padding: 1vw;
+}
+
+.skills{
+  padding: 1vw;
+  display: flex;
+  width: fit-content;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 1vw
+}
+
+.techstackImg{
+  width: 1.8vw;
+  height: 1.8vw;
+}
+
+.visit{
+  position: absolute;
+  bottom: 0.5vw;
+  right: 0.5vw;
+  width: 1.6vw;
+  height: 1.6vw;
+}
+
+.Skill{
+  width: 100%;
+  height: 100vh;
+  justify-items: center;
+  align-items: center;
+  padding-top: 4vh;
+}
+
+.skillpage{
+  width: 90%;
+  height: 90vh;
+  justify-items: center;
+  padding-top: 5vh;
+}
+
+.skillpage.fadeIn{
+  animation: projectAnimationIn 1s ease-in forwards;
+}
+
+.skillpage.fadeOut{
+  animation: projectAnimationOut 1s ease-in forwards;
+}
+
+.skillsTop{
+  height: fit-content;
+  display: flex;
+  color: white;
+  justify-content: space-evenly;
+  font-size: large;
+  width: 100%;
+  font-family: 'Constan';
+}
+
+
+.skillsComponent {
+  margin-top: 12vh;
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3vw 1vw; /* smaller row + column gap */
+  justify-items: center;
+  align-items: center;
+}
+
+.category{
+  cursor: pointer;
+  line-height: 1;
+  text-underline-offset: 5px;
+}
+
+.skillItem {
+  width: fit-content;
+  height: fit-content;
+}
+
+.skillImage {
+  width: 3vw;
+  height: 3vw;
+}
+
+.certComponent{
+  margin-top: 10vh;
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3vw 1vw; /* smaller row + column gap */
+  justify-items: center;
+  align-items: center;
+}
+
+.certImage{
+  width: 22vw;
+  height: auto;
+}
+
+@media (max-width: 1200px) {
+
+  /* Body Styles */
+  body {
+    background-size: 100% 100%;
+  }
+
+  .Message {
+    font-size: 1.5vw;
+  }
+
+  /* About Section */
+  .aboutContent {
+    margin-top: 10vh;
+  }
+
+  .aboutText {
+    width: 50%;
+  }
+
+  /* Greeting */
+  .greeting {
+    font-size: 2.4vw;
+  }
+
+  /* Designation */
+  .designation {
+    font-size: 1.8vw;
+    margin-top: -0.8vh;
+  }
+
+  .desiDesc{
+    width: 70%;
+    font-size: 1vw;
+  }
+
+  /* About Image */
+  .aboutImage {
+    width: fit-content;
+  }
+
+  /* Contact Section */
+  .contact {
+    gap: 4vw;
+    width: 40%;
+
+  }
+
+  .contact a {
+    font-size: 1.2vw;
+  }
+
+  .icon {
+    height: 3vw;
+    width: 3vw;
+  }
+
+  /* Badges */
+  .badges {
+    gap: 3vw;
+  }
+
+  .box {
+    width: 22%;
+    padding: 0.5vw;
+  }
+
+  .boximage {
+    width: 2.1vw;
+    height: 2.1vw;
+  }
+
+  .total {
+    font-size: 1.3vw;
+  }
+
+  .number {
+    font-size: 1.3vw;
+  }
+
+  /* Portfolio */
+  .projects {
+    gap: 2vw;
+  }
+
+  .projectItem {
+    width: 23vw;
+    height: 75vh;
+  }
+
+  .projTitle {
+    font-size: 1.5vw;
+  }
+
+  .projDesc {
+    font-size: 1vw;
+  }
+
+  .skills {
+    gap: 2vw;
+  }
+
+  .techstackImg {
+    width: 2vw;
+    height: 2vw;
+  }
+
+  /* Skill Page */
+  .skillpage {
+    width: 80%;
+    height: 80vh;
+  }
+
+  .skillsComponent {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .skillImage {
+    width: 3vw;
+    height: 3vw;
+  }
+
+  .certComponent {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .certImage {
+    width: 25vw;
+  }
+}
+
+@media (max-width: 900px) {
+  body {
+    background-size: 100% 100%;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .projects {
+    gap: 2vw;
+  }
+
+  .aboutText {
+    width: 65%;
+    padding-left: 8vw;
+  }
+
+  
+  .designation{
+    font-size: 1.6vw;
+    margin-top: -0.5vh;
+  }
+  
+  .desiDesc{
+    font-size: 1.3vw;
+  }
+
+  .aboutContent{
+    justify-content: center;
+  }
+
+  .aboutImage{
+    width: 10%;
+
+  }
+
+  .langButton{
+    width: 7vw;
+    height: fit-content;
+  }
+  
+  .cmdButton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .aboutImage{
+    width: fit-content;
+  }
+
+  .cmdImage{
+    width: 70%
+  }
+
+  .box{
+    border: 1px solid white;
+    width: 24%;
+  }
+
+  .boximage {
+    width: 2.1vw;
+    height: 2.1vw;
+  }
+
+  .total {
+    font-size: 1.4vw;
+    
+  }
+
+  .number {
+    font-size: 1.6vw;
+  }
+
+  .projectItem{
+    width: 26vw;
+    height: 65vh;
+  }
+
+  .visit {
+    width: 2vw;
+    height: 2vw;
+  }
+}
+
+@media (max-width: 768px){
+  body{
+    background:
+    radial-gradient(circle at 98% 0%, rgba(203, 82, 146,0.15), transparent 9%),
+   radial-gradient(circle at 5% 20%, rgba(223,182,176,0.14), transparent 15%),
+    radial-gradient(circle at 98% 50%, rgba(135,49,209, 0.25), transparent 20%),
+    radial-gradient(circle at 90% 65%, rgba(203, 82, 146,0.20), transparent 15%),
+    radial-gradient(circle at 70% 73%, rgba(223,182,176,0.13), transparent 15%),
+    radial-gradient(circle at 0% 80%, rgba(135,49,209, 0.15), transparent 20%),
+    radial-gradient(circle at 20% 92%, rgba(203, 82, 146,0.15), transparent 15%),
+    radial-gradient(circle at 45% 105%, rgba(223,182,176,0.13), transparent 15%),
+    #0a0a0a;
+  }
+
+  .aboutText {
+    width: 70%;
+    padding-left: 10vw;
+  }
+
+  .Message{
+    font-size: 2vw;
+  }
+
+  .myName{
+    font-size: 2.3vw;
+  }
+
+  .designation{
+    font-size: 2vw;
+    margin-top: -0.5vh;
+  }
+
+  .desiDesc{
+    width: 80%;
+    font-size: 1.5vw;
+  }
+
+  .langButton.Mid{
+    margin-left: -5vw;
+  }
+
+  .box{
+    width: 28%;
+  }
+
+  .boximage {
+    width: 2.2vw;
+    height: 2.2vw;
+  }
+
+  .total {
+    font-size: 1.7vw;
+    
+  }
+
+  .number {
+    font-size: 1.9vw;
+  }
+
+  .projectItem{
+    width: 32vw;
+    height: 70vh;
+  }
+
+  .projTitle {
+    font-size: 2vw;
+  }
+
+  .projDesc {
+    font-size: 1.3vw;
+  }
+
+  .techstackImg {
+    width: 3vw;
+    height: 3vw;
+  }
+
+  .visit{
+    width: 2.5vw;
+    height: 2.5vh;
+  }
+
+  .category{
+    font-size: 2vw;
+  }
+
+  .skillImage {
+    width: 4vw;
+    height: 4vw;
+  }
+
+  .certImage{
+    width: 30vw;
+    height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+    padding: 0;
+    background:
+    radial-gradient(circle at 98% 0%, rgba(203, 82, 146,0.20), transparent 12%),
+    radial-gradient(circle at 5% 20%, rgba(223,182,176,0.19), transparent 15%),
+    radial-gradient(circle at 98% 50%, rgba(135,49,209, 0.25), transparent 20%),
+    radial-gradient(circle at 90% 65%, rgba(203, 82, 146,0.20), transparent 15%),
+    radial-gradient(circle at 70% 73%, rgba(223,182,176,0.13), transparent 15%),
+    radial-gradient(circle at 0% 80%, rgba(135,49,209, 0.15), transparent 20%),
+    radial-gradient(circle at 20% 92%, rgba(203, 82, 146,0.15), transparent 15%),
+    radial-gradient(circle at 45% 105%, rgba(223,182,176,0.13), transparent 15%),
+    #0a0a0a;
+  }
+
+  .Message{
+    font-size: 2.5vw;
+  }
+
+  .aboutSection {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0.5rem;
+  }
+
+  .aboutContent {
+    font-size: 0.9rem;
+    width: 100%;
+    padding: 0;
+  }
+
+  .aboutText{
+    padding-left: 0vw;
+  }
+
+  .greeting{
+    font-size: 4.5vw;
+  }
+
+  .myName{
+    font-size: 4.5vw;
+  }
+  
+  .designation{
+    font-size: 4vw;
+    margin-top: -0.5vh;
+    margin-bottom: 7vh;
+  }
+
+  .desiDesc{
+    width: 94%;
+    font-size: 3vw;
+  }
+
+  .aboutImage{
+    display:none;
+  }
+
+  .badges{
+    gap: 4vw
+  }
+
+  .box{
+    margin-top: 0vh;
+    width: 35%;
+  }
+
+  .boximage{
+    width: 3.2vw;
+    height: 3.2vw;
+  }
+  
+  .total{
+    font-size: 2.7vw;
+    font-family: 'Constan';
+  }
+  
+  .number{
+    font-size: 2.9vw;
+    font-family: 'Chromatica';
+  }
+
+  .projects {
+    flex-direction: column;
+    gap: 5vw;
+    align-items: center;
+  }
+
+  .projectItem {
+    width: 80vw;
+    height: 60vh;
+  }
+
+  .projTitle {
+    font-size: 4vw;
+    padding: 2vw;
+  }
+
+  .projDesc {
+    font-size: 3vw;
+    padding:2vw;
+  }
+
+  .skills {
+    gap: 2vw;
+    padding: 2vw;
+  }
+
+  .techstackImg {
+    width: 4vw;
+    height: 4vw;
+  }
+
+  .visit {
+    width: 5.8vw;
+    height: 5.8vw;
+    padding-right: 0.5vw;
+    padding-bottom: 0.5vw;
+  }
+
+  .contact{
+    width: 50%;
+    gap: 8vw
+  }
+
+  .icon{
+    height: 5vw;
+    width: 5vw;
+  }
+
+  .category{
+    font-size: 3vw;
+  }
+
+  .skillpage{
+    width: 90%;
+    height: 90vh;
+    padding-top: 5vh;
+  }
+
+  .skillsComponent {
+    margin-top: 12vh;
+    width: 100%
+  }
+
+  .skillImage {
+    width: 6vw;
+    height: 6vw;
+  }
+
+  .certComponent{
+    margin-top: 12vh;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3vw 2vw; /* smaller row + column gap */
+  }
+
+  .certImage{
+    width: 40vw;
+    height: auto;
+  }
+
+}
+
+
+
+
+
+
+
+
+
