@@ -50,7 +50,7 @@ export const DisplaySkills =({isVisible}) => {
         },
         {
             id:10,
-            skillName: 'Javascript',
+            skillName: 'Js',
             skillUrl: 'javascript.png'
         },
         {
