@@ -31,7 +31,7 @@ export const DisplaySkills =({isVisible}) => {
         {
             id:6,
             skillName: 'HTML',
-            skillUrl: 'html.png'
+            skillUrl: 'Html5.png'
         },
         {
             id:7,
@@ -50,8 +50,8 @@ export const DisplaySkills =({isVisible}) => {
         },
         {
             id:10,
-            skillName: 'Js',
-            skillUrl: 'javascript.png'
+            skillName: 'Javascript',
+            skillUrl: 'Js.png'
         },
         {
             id:11,
